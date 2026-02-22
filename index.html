@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover government welfare schemes tailored to your profile.">
+    <title>National Welfare Scheme Portal</title>
+    <!-- Modern Official Fonts: Merriweather for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation & Profile Form -->
+        <aside class="sidebar">
+            <div class="brand-wrapper">
+                <div class="emblem-placeholder">
+                    <!-- Icon representing an official government emblem/seal -->
+                    🏛
+                </div>
+                <h1 class="brand" data-i18n="brand">Welfare Scheme<br>Matching Portal</h1>
+            </div>
+
+            <div class="input-group">
+                <label for="language" data-i18n="label-language">Select Language</label>
+                <select id="language" name="language">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi (हिन्दी)</option>
+                    <option value="ta">Tamil (தமிழ்)</option>
+                    <option value="te">Telugu (తెలుగు)</option>
+                    <option value="mr">Marathi (मराठी)</option>
+                    <option value="gu">Gujarati (ગુજરાતી)</option>
+                    <option value="kn">Kannada (ಕನ್ನಡ)</option>
+                    <option value="ml">Malayalam (മലയാളം)</option>
+                    <option value="bho">Bhojpuri (भोजपुरी)</option>
+                </select>
+            </div>
+
+            <h2 class="sidebar-title" data-i18n="sidebar-title">Determine Eligibility</h2>
+
+            <form id="profile-form">
+                <div class="input-group">
+                    <label for="age" data-i18n="label-age">Applicant Age</label>
+                    <input type="number" id="age" name="age" min="1" max="120" value="22" required
+                        placeholder="e.g., 22" data-i18n-placeholder="placeholder-age">
+                </div>
+
+                <div class="input-group">
+                    <label for="gender" data-i18n="label-gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="Male" data-i18n="opt-male">Male</option>
+                        <option value="Female" data-i18n="opt-female">Female</option>
+                        <option value="Other" data-i18n="opt-other">Other / Prefer not to say</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="occupation" data-i18n="label-occupation">Current Occupation</label>
+                    <select id="occupation" name="occupation" required>
+                        <option value="Student" data-i18n="opt-student">Student</option>
+                        <option value="Farmer" data-i18n="opt-farmer">Farmer / Agriculture</option>
+                        <option value="Small Business Owner" data-i18n="opt-small-business">Small Business Owner
+                        </option>
+                        <option value="Entrepreneur" data-i18n="opt-entrepreneur">Entrepreneur</option>
+                        <option value="Working Professional" data-i18n="opt-professional">Working Professional</option>
+                        <option value="Private Sector Employee" data-i18n="opt-private">Private Sector Employee /
+                            Private</option>
+                        <option value="Unemployed" data-i18n="opt-unemployed">Unemployed / Job Seeker</option>
+                        <option value="Senior Citizen" data-i18n="opt-senior">Senior Citizen</option>
+                        <option value="Retired" data-i18n="opt-retired">Retired</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="income" data-i18n="label-income">Annual Household Income (₹)</label>
+                    <input type="number" id="income" name="income" min="0" value="0" step="5000" required>
+                </div>
+
+                <button type="submit" class="primary-btn">
+                    <span data-i18n="btn-verify">Verify Eligibility</span>
+                </button>
+            </form>
+        </aside>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            <header>
+                <h2 data-i18n="header-title">Eligible Welfare Schemes</h2>
+                <p data-i18n="header-desc">Welcome to the national scheme matching engine. Enter your demographic and
+                    professional details to
+                    instantly discover central welfare programs you qualify for.</p>
+                <div id="status-message-container">
+                    <span id="status-message" data-i18n="status-initial">Enter your details and verify eligibility to
+                        load schemes.</span>
+                </div>
+            </header>
+
+            <div class="schemes-grid" id="results-container">
+                <!-- Verified Scheme Cards will be securely injected here via JavaScript -->
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
