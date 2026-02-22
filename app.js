@@ -797,12 +797,13 @@ document.getElementById('profile-form').addEventListener('submit', async functio
     await new Promise(resolve => setTimeout(resolve, 800));
 
     try {
-        // Call the Backend API
-        const response = await fetch('/api/schemes', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ age, gender, occupation, income })
-        });
+    // Call the Backend API (Render URL)
+    const response = await fetch('https://gov-scheme-eligibility-matcher.onrender.com/api/schemes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ age, gender, occupation, income })
+    });
+
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
