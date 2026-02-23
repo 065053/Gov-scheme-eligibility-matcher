@@ -1,163 +1,163 @@
 [
-    {
-        "scheme_name": "PM-Kisan Samman Nidhi",
-        "description": "Financial benefit of Rs. 6000/- per year is provided to all landholding farmer families.",
-        "target_occupation": [
-            "farmer"
-        ],
-        "target_gender": "all",
-        "max_income_limit": 10000000,
-        "age_range": {
-            "min": 18,
-            "max": 100
-        },
-        "application_checklist": [
-            "Aadhaar Card",
-            "Bank Account Details",
-            "Land Ownership Documents"
-        ],
-        "official_link": "https://pmkisan.gov.in/"
+  {
+    "scheme_name": "PM-Kisan Samman Nidhi",
+    "description": "Financial benefit of Rs. 6000/- per year is provided to all landholding farmer families.",
+    "target_occupation": [
+      "farmer"
+    ],
+    "target_gender": "all",
+    "max_income_limit": 10000000,
+    "age_range": {
+      "min": 18,
+      "max": 100
     },
-    {
-        "scheme_name": "PM Mudra Yojana",
-        "description": "Loans up to Rs. 10 Lakhs to non-corporate, non-farm small/micro enterprises.",
-        "target_occupation": [
-            "small business owner",
-            "unemployed",
-            "entrepreneur"
-        ],
-        "target_gender": "all",
-        "max_income_limit": 10000000,
-        "age_range": {
-            "min": 18,
-            "max": 65
-        },
-        "application_checklist": [
-            "Aadhaar Card",
-            "Business Plan",
-            "Address Proof"
-        ],
-        "official_link": "https://www.mudra.org.in/"
+    "application_checklist": [
+      "Aadhaar Card",
+      "Bank Account Details",
+      "Land Ownership Documents"
+    ],
+    "official_link": "https://pmkisan.gov.in/"
+  },
+  {
+    "scheme_name": "PM Mudra Yojana",
+    "description": "Loans up to Rs. 10 Lakhs to non-corporate, non-farm small/micro enterprises.",
+    "target_occupation": [
+      "small business owner",
+      "unemployed",
+      "entrepreneur"
+    ],
+    "target_gender": "all",
+    "max_income_limit": 10000000,
+    "age_range": {
+      "min": 18,
+      "max": 65
     },
-    {
-        "scheme_name": "Post-Matric Scholarships",
-        "description": "Scholarships for SC/ST/OBC students studying at post-matriculation or post-secondary stage.",
-        "target_occupation": [
-            "student"
-        ],
-        "target_gender": "all",
-        "max_income_limit": 250000,
-        "age_range": {
-            "min": 15,
-            "max": 30
-        },
-        "application_checklist": [
-            "Income Certificate",
-            "Caste Certificate",
-            "Previous Year Marksheet",
-            "Aadhaar Card"
-        ],
-        "official_link": "https://scholarships.gov.in/"
+    "application_checklist": [
+      "Aadhaar Card",
+      "Business Plan",
+      "Address Proof"
+    ],
+    "official_link": "https://www.mudra.org.in/"
+  },
+  {
+    "scheme_name": "Post-Matric Scholarships",
+    "description": "Scholarships for SC/ST/OBC students studying at post-matriculation or post-secondary stage.",
+    "target_occupation": [
+      "student"
+    ],
+    "target_gender": "all",
+    "max_income_limit": 250000,
+    "age_range": {
+      "min": 15,
+      "max": 30
     },
-    {
-        "scheme_name": "Pradhan Mantri Jan Dhan Yojana",
-        "description": "National Mission for Financial Inclusion to ensure access to financial services in an affordable manner.",
-        "target_occupation": [
-            "all"
-        ],
-        "target_gender": "all",
-        "max_income_limit": 10000000,
-        "age_range": {
-            "min": 10,
-            "max": 100
-        },
-        "application_checklist": [
-            "Aadhaar Card",
-            "Passport Size Photograph"
-        ],
-        "official_link": "https://pmjdy.gov.in/"
+    "application_checklist": [
+      "Income Certificate",
+      "Caste Certificate",
+      "Previous Year Marksheet",
+      "Aadhaar Card"
+    ],
+    "official_link": "https://scholarships.gov.in/"
+  },
+  {
+    "scheme_name": "Pradhan Mantri Jan Dhan Yojana",
+    "description": "National Mission for Financial Inclusion to ensure access to financial services in an affordable manner.",
+    "target_occupation": [
+      "all"
+    ],
+    "target_gender": "all",
+    "max_income_limit": 10000000,
+    "age_range": {
+      "min": 10,
+      "max": 100
     },
-    {
-        "scheme_name": "Atal Pension Yojana",
-        "description": "A guaranteed pension scheme for unorganized sector workers.",
-        "target_occupation": [
-            "farmer",
-            "small business owner",
-            "unemployed",
-            "entrepreneur"
-        ],
-        "target_gender": "all",
-        "max_income_limit": 10000000,
-        "age_range": {
-            "min": 18,
-            "max": 40
-        },
-        "application_checklist": [
-            "Savings Bank Account",
-            "Aadhaar Card"
-        ],
-        "official_link": "https://npscra.nsdl.co.in/nsdl/scheme-details/apy"
+    "application_checklist": [
+      "Aadhaar Card",
+      "Passport Size Photograph"
+    ],
+    "official_link": "https://pmjdy.gov.in/"
+  },
+  {
+    "scheme_name": "Atal Pension Yojana",
+    "description": "A guaranteed pension scheme for unorganized sector workers.",
+    "target_occupation": [
+      "farmer",
+      "small business owner",
+      "unemployed",
+      "entrepreneur"
+    ],
+    "target_gender": "all",
+    "max_income_limit": 10000000,
+    "age_range": {
+      "min": 18,
+      "max": 40
     },
-    {
-        "scheme_name": "Stand-Up India Scheme",
-        "description": "Facilitates bank loans between ₹10 lakh and ₹1 Crore to at least one SC/ST and one woman borrower per bank branch for setting up a greenfield enterprise.",
-        "target_occupation": [
-            "small business owner",
-            "unemployed",
-            "entrepreneur"
-        ],
-        "target_gender": "female",
-        "max_income_limit": 10000000,
-        "age_range": {
-            "min": 18,
-            "max": 100
-        },
-        "application_checklist": [
-            "Aadhaar Card",
-            "Caste/Gender Certificate",
-            "Project Report",
-            "Bank Details"
-        ],
-        "official_link": "https://www.standupmitra.in/"
+    "application_checklist": [
+      "Savings Bank Account",
+      "Aadhaar Card"
+    ],
+    "official_link": "https://npscra.nsdl.co.in/nsdl/scheme-details/apy"
+  },
+  {
+    "scheme_name": "Stand-Up India Scheme",
+    "description": "Facilitates bank loans between ₹10 lakh and ₹1 Crore to at least one SC/ST and one woman borrower per bank branch for setting up a greenfield enterprise.",
+    "target_occupation": [
+      "small business owner",
+      "unemployed",
+      "entrepreneur"
+    ],
+    "target_gender": "female",
+    "max_income_limit": 10000000,
+    "age_range": {
+      "min": 18,
+      "max": 100
     },
-    {
-        "scheme_name": "National Means-cum-Merit Scholarship",
-        "description": "Awards scholarships to meritorious students of economically weaker sections to arrest their drop out at class VIII.",
-        "target_occupation": [
-            "student"
-        ],
-        "target_gender": "all",
-        "max_income_limit": 350000,
-        "age_range": {
-            "min": 13,
-            "max": 18
-        },
-        "application_checklist": [
-            "Income Certificate",
-            "Marksheet from previous class",
-            "Aadhaar Card"
-        ],
-        "official_link": "https://scholarships.gov.in/"
+    "application_checklist": [
+      "Aadhaar Card",
+      "Caste/Gender Certificate",
+      "Project Report",
+      "Bank Details"
+    ],
+    "official_link": "https://www.standupmitra.in/"
+  },
+  {
+    "scheme_name": "National Means-cum-Merit Scholarship",
+    "description": "Awards scholarships to meritorious students of economically weaker sections to arrest their drop out at class VIII.",
+    "target_occupation": [
+      "student"
+    ],
+    "target_gender": "all",
+    "max_income_limit": 350000,
+    "age_range": {
+      "min": 13,
+      "max": 18
     },
-    {
-        "scheme_name": "Pradhan Mantri Shram Yogi Maan-dhan",
-        "description": "A voluntary and contributory pension scheme for unorganized workers.",
-        "target_occupation": [
-            "farmer",
-            "small business owner",
-            "unemployed",
-            "entrepreneur"
-        ],
-        "target_gender": "all",
-        "max_income_limit": 180000,
-        "age_range": {
-            "min": 18,
-            "max": 40
-        },
-        "application_checklist": [
-            "Aadhaar Card",
-            "Savings Bank Account / Jan Dhan Account number with IFSC"
-        ],
-        "official_link": "https://maandhan.in/"
-    }
+    "application_checklist": [
+      "Income Certificate",
+      "Marksheet from previous class",
+      "Aadhaar Card"
+    ],
+    "official_link": "https://scholarships.gov.in/"
+  },
+  {
+    "scheme_name": "Pradhan Mantri Shram Yogi Maan-dhan",
+    "description": "A voluntary and contributory pension scheme for unorganized workers.",
+    "target_occupation": [
+      "farmer",
+      "small business owner",
+      "unemployed",
+      "entrepreneur"
+    ],
+    "target_gender": "all",
+    "max_income_limit": 180000,
+    "age_range": {
+      "min": 18,
+      "max": 40
+    },
+    "application_checklist": [
+      "Aadhaar Card",
+      "Savings Bank Account / Jan Dhan Account number with IFSC"
+    ],
+    "official_link": "https://maandhan.in/"
+  }
 ]
