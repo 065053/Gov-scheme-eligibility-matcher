@@ -24,6 +24,11 @@ const translations = {
         "header-desc": "Welcome to the national scheme matching engine. Enter your demographics to discover programs.",
         "status-initial": "Enter your details and verify eligibility to load schemes.",
         "verifying": "Verifying...",
+        "chat-title": "Scheme Assistant",
+        "chat-welcome": "Hello! I am your official scheme assistant. How can I help you discover government benefits today?",
+        "chat-placeholder": "Ask me anything about schemes...",
+        "chat-error": "Sorry, I encountered an error. Please try again.",
+        "chat-listening": "Listening...",
         "connection-failed": "Connection failed. Unable to retrieve data.",
         "no-matches": "No central schemes match the demographics provided.",
         "eligibility-verified": "✓ Eligibility Verified: {count} Suitable Scheme(s) Discovered",
@@ -107,6 +112,11 @@ const translations = {
         "header-desc": "राष्ट्रीय योजना मिलान इंजन में आपका स्वागत है। कार्यक्रमों की खोज के लिए अपना विवरण दर्ज करें।",
         "status-initial": "योजनाओं को लोड करने के लिए अपना विवरण दर्ज करें और पात्रता सत्यापित करें।",
         "verifying": "सत्यापित किया जा रहा है...",
+        "chat-title": "योजना सहायक",
+        "chat-welcome": "नमस्ते! मैं आपका आधिकारिक योजना सहायक हूँ। आज सरकारी लाभों को खोजने में मैं आपकी कैसे मदद कर सकता हूँ?",
+        "chat-placeholder": "योजनाओं के बारे में कुछ भी पूछें...",
+        "chat-error": "क्षमा करें, मुझे एक त्रुटि मिली। कृपया पुनः प्रयास करें।",
+        "chat-listening": "सुन रहा हूँ...",
         "connection-failed": "कनेक्शन विफल रहा। डेटा प्राप्त करने में असमर्थ।",
         "no-matches": "प्रदान की गई जनसांख्यिकी से कोई योजना मेल नहीं खाती।",
         "eligibility-verified": "✓ पात्रता सत्यापित: {count} उपयुक्त योजना(एं) मिलीं",
@@ -797,12 +807,12 @@ document.getElementById('profile-form').addEventListener('submit', async functio
     await new Promise(resolve => setTimeout(resolve, 800));
 
     try {
-    // Call the Backend API (Render URL)
-    const response = await fetch('https://gov-scheme-eligibility-matcher.onrender.com/api/schemes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ age, gender, occupation, income })
-    });
+        // Call the Backend API (Render URL)
+        const response = await fetch('https://gov-scheme-eligibility-matcher.onrender.com/api/schemes', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ age, gender, occupation, income })
+        });
 
 
         if (!response.ok) {
@@ -913,3 +923,146 @@ function renderSchemes(schemes) {
         });
     }, 200);
 }
+
+// Chatbot Implementation
+class Chatbot {
+    constructor() {
+        this.widget = document.getElementById('chatbot-widget');
+        this.toggleBtn = document.getElementById('chatbot-toggle');
+        this.closeBtn = document.getElementById('close-chat');
+        this.sendBtn = document.getElementById('send-btn');
+        this.voiceBtn = document.getElementById('voice-btn');
+        this.input = document.getElementById('chat-input');
+        this.messagesContainer = document.getElementById('chat-messages');
+
+        this.recognition = null;
+        this.synth = window.speechSynthesis;
+        this.isListening = false;
+
+        this.init();
+    }
+
+    init() {
+        this.toggleBtn.onclick = () => this.toggleChat();
+        this.closeBtn.onclick = () => this.toggleChat();
+        this.sendBtn.onclick = () => this.handleSendMessage();
+        this.input.onkeypress = (e) => e.key === 'Enter' && this.handleSendMessage();
+        this.voiceBtn.onclick = () => this.toggleVoiceInput();
+
+        this.setupSpeechRecognition();
+    }
+
+    toggleChat() {
+        const isVisible = this.widget.style.display === 'flex';
+        this.widget.style.display = isVisible ? 'none' : 'flex';
+        if (!isVisible) this.input.focus();
+    }
+
+    setupSpeechRecognition() {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+            this.recognition = new SpeechRecognition();
+            this.recognition.continuous = false;
+            this.recognition.interimResults = false;
+
+            this.recognition.onstart = () => {
+                this.isListening = true;
+                this.voiceBtn.classList.add('listening');
+                this.input.placeholder = translations[currentLanguage]['chat-listening'];
+            };
+
+            this.recognition.onend = () => {
+                this.isListening = false;
+                this.voiceBtn.classList.remove('listening');
+                this.input.placeholder = translations[currentLanguage]['chat-placeholder'];
+            };
+
+            this.recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                this.input.value = transcript;
+                this.handleSendMessage();
+            };
+
+            this.recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                this.isListening = false;
+                this.voiceBtn.classList.remove('listening');
+            };
+        } else {
+            this.voiceBtn.style.display = 'none';
+            console.warn('Speech Recognition not supported in this browser.');
+        }
+    }
+
+    toggleVoiceInput() {
+        if (!this.recognition) return;
+        if (this.isListening) {
+            this.recognition.stop();
+        } else {
+            // Update recognition language based on current UI language
+            const langMap = {
+                'en': 'en-US', 'hi': 'hi-IN', 'ta': 'ta-IN', 'te': 'te-IN',
+                'mr': 'mr-IN', 'gu': 'gu-IN', 'kn': 'kn-IN', 'ml': 'ml-IN', 'bho': 'hi-IN'
+            };
+            this.recognition.lang = langMap[currentLanguage] || 'en-US';
+            this.recognition.start();
+        }
+    }
+
+    async handleSendMessage() {
+        const message = this.input.value.trim();
+        if (!message) return;
+
+        this.addMessage(message, 'user');
+        this.input.value = '';
+
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: message,
+                    language: currentLanguage
+                })
+            });
+
+            const data = await response.json();
+            if (data.status === 'success') {
+                this.addMessage(data.reply, 'bot');
+                this.speak(data.reply);
+            } else {
+                throw new Error(data.message);
+            }
+        } catch (error) {
+            console.error('Chat error:', error);
+            this.addMessage(translations[currentLanguage]['chat-error'], 'bot');
+        }
+    }
+
+    addMessage(text, sender) {
+        const div = document.createElement('div');
+        div.className = `message ${sender}-message`;
+        div.textContent = text;
+        this.messagesContainer.appendChild(div);
+        this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+    }
+
+    speak(text) {
+        if (!this.synth) return;
+        this.synth.cancel(); // Stop current speech
+        const utterance = new SpeechSynthesisUtterance(text);
+
+        // Map UI language to TTS voices
+        const langMap = {
+            'en': 'en-US', 'hi': 'hi-IN', 'ta': 'ta-IN', 'te': 'te-IN',
+            'mr': 'mr-IN', 'gu': 'gu-IN', 'kn': 'kn-IN', 'ml': 'ml-IN', 'bho': 'hi-IN'
+        };
+        utterance.lang = langMap[currentLanguage] || 'en-US';
+        this.synth.speak(utterance);
+    }
+}
+
+// Initialize Chatbot when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    window.assistant = new Chatbot();
+});
