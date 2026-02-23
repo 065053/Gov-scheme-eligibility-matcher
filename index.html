@@ -106,6 +106,24 @@
             </div>
         </main>
     </div>
+
+    <!-- Voice Assisted Chatbot UI -->
+    <div id="chatbot-widget" class="chatbot-container">
+        <div id="chatbot-header">
+            <span data-i18n="chat-title">Scheme Assistant</span>
+            <button id="close-chat">×</button>
+        </div>
+        <div id="chat-messages">
+            <div class="message bot-message" data-i18n="chat-welcome">How can I help you today?</div>
+        </div>
+        <div id="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask a question..." data-i18n-placeholder="chat-placeholder">
+            <button id="voice-btn" title="Voice Input">🎤</button>
+            <button id="send-btn">➤</button>
+        </div>
+    </div>
+    <button id="chatbot-toggle" title="Open Chat">💬</button>
+
     <script src="app.js"></script>
 </body>
 
